@@ -1,13 +1,67 @@
+body{
+    background-color: rgb(211, 218, 211);
+}
+
 #container{
     display: flex;
     justify-content: center;
     padding-top: 20px;
 }
-
+.header{
+    text-align: center;
+}
 
 #container button{
     padding: 10px 24px;
     background-color: yellow;
     text-align: center;
     font-size: 16px;
+    margin: 5px;
 }
+#start{
+    display: flex;
+    justify-content: center;
+    
+    padding-top: 50px;
+}
+#start button{
+    padding: 10px 34px;
+    background-color: yellow;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+#ScoreContainer{
+    display: flex;
+    font-size: xx-large;
+    justify-content: space-around;
+}
+
+
+#player{
+    text-align: center;
+    width:200px;
+    height:200px;
+    margin:10px;
+    padding:10px;
+    border: 3px black solid;
+}
+
+#computer{
+    text-align: center;
+    width:200px;
+    height:200px;
+    margin:10px;
+    padding:10px;
+    border: 3px black solid;
+}
+
+#player #Pscore{
+    padding-top: 50px;
+}
+
+#computer #Cscore{
+    padding-top:50px;
+}
+

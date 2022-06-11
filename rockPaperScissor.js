@@ -1,7 +1,7 @@
 let choice = ["rock","paper","scissor"];
 let PlayerWin =0,ComputerWin=0;
-
-
+let playerScore = document.getElementById("Pscore");
+let computerScore = document.getElementById("Cscore");
 function computerPlay(){
     const randomChoice = choice[Math.floor(Math.random()*choice.length)];
     return randomChoice;
@@ -46,22 +46,29 @@ function playRound(playerSelection,computerSelection){
         }
     }
 }
-
+function scoreUpdate(){
+    playerScore.innerText=PlayerWin;
+    computerScore.innerText=ComputerWin;
+}
 function game(){
-
     let playerSelection;
-    let computerSelection;
-    // for(let i=0;i<5;i++){
+    let computerSelection;    
         const btns = document.querySelectorAll('#container');
             btns.forEach((button)=>{
                 button.addEventListener('click',(e)=>{
                 playerSelection = e.target.value;
                 computerSelection = computerPlay();
+                scoreUpdate();
+        
                 console.log("playerSelection : " + playerSelection + " computerSelection : " + computerSelection);
                 console.log(playRound(playerSelection,computerSelection));
                 e.stopPropagation();
+                
             });
         });
-
+      
 }
+
 game();
+
+
