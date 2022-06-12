@@ -9,39 +9,45 @@ function computerPlay(){
 
 function playRound(playerSelection,computerSelection){
     if(playerSelection===computerSelection){
-        return ("Its A tie")
+        return ("\nIts A tie")
     }
+    
+    if(playerScore==5||computerScore==5){
+        alert("Please start a new Game");
+        
+    }
+     
     else{
         if(playerSelection==="rock"){
             if(computerSelection==="scissor"){
                 PlayerWin++;
-                return("You win");
+                return("\nYou win");
                
             }
             else{
                 ComputerWin++;
-                return ("You Lose");
+                return ("\nYou Lose");
                 
             }
         }
         if(playerSelection==="paper"){
             if(computerSelection==="rock"){
                 PlayerWin++;
-                return("You Win");
+                return("\nYou Win");
             }
             else{
                 ComputerWin++;
-                return("You Lose");
+                return("\nYou Lose");
             }
         }
         if(playerSelection==="scissor"){
             if(computerSelection==="paper"){
                 PlayerWin++;
-                return("You Win");
+                return("\nYou Win");
             }
             else{
                 ComputerWin++;
-                return("You lose");
+                return("\nYou lose");
             }
         }
     }
@@ -50,6 +56,7 @@ function scoreUpdate(){
     playerScore.innerText=PlayerWin;
     computerScore.innerText=ComputerWin;
 }
+let result = document.querySelector('#result');
 function game(){
     let playerSelection;
     let computerSelection;    
@@ -58,17 +65,19 @@ function game(){
                 button.addEventListener('click',(e)=>{
                 playerSelection = e.target.value;
                 computerSelection = computerPlay();
-                scoreUpdate();
-        
                 console.log("playerSelection : " + playerSelection + " computerSelection : " + computerSelection);
-                console.log(playRound(playerSelection,computerSelection));
+                console.log(result.innerText = "playerSelection : " + playerSelection + " \ncomputerSelection : " + computerSelection + playRound(playerSelection,computerSelection));
+                scoreUpdate();
                 e.stopPropagation();
-                
             });
         });
-      
 }
-
+const startBtn = document.querySelector("#newGame");
+startBtn.onclick = () =>{
+    PlayerWin = 0;
+    ComputerWin = 0;
+    playerScore.innerText=0;
+    computerScore.innerText=0;
+    result.innerText="";
+}
 game();
-
-
